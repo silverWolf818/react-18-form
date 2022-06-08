@@ -1,5 +1,5 @@
 const FormCanvasPanel = ()=> {
-    return <div className="form-canvas-panel">FormCanvasPanel</div>
+    return <div className="form-canvas-panel"></div>
 }
 
 export default FormCanvasPanel

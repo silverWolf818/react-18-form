@@ -1,5 +1,5 @@
 const FormSettingPanel = ()=> {
-    return <div className="form-setting-panel">FormSettingPanel</div>
+    return <div className="form-setting-panel"></div>
 }
 
 export default FormSettingPanel

@@ -1,0 +1,98 @@
+[
+  {
+    "label": "",
+    "typeName": "单行文本",
+    "type": "TextField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "多行文本",
+    "type": "TextArea",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "单项选择",
+    "type": "RadioButton",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "多项选择",
+    "type": "CheckBox",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "时间",
+    "type": "TimeField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "日期",
+    "type": "DateField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "数字",
+    "type": "NumberField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "下拉框",
+    "type": "DropDown",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "姓名",
+    "type": "NameField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "邮箱",
+    "type": "EmailField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "手机",
+    "type": "TelephoneField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  },
+  {
+    "label": "",
+    "typeName": "表格",
+    "type": "TableField",
+    "planAvailable": true,
+    "predefined": false,
+    "scorable": false
+  }
+]

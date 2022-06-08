@@ -8,7 +8,9 @@ import FormSettingPanel from './components/FormSettingPanel'
 function App() {
     return (
         <div className="form-container">
-            <FormNavigator/>
+            <div className="form-header">
+                <FormNavigator/>
+            </div>
             <div className="form-composite">
                 <FormFieldsPanel/>
                 <FormCanvasPanel/>
