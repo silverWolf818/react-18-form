@@ -1,9 +1,12 @@
 import formFieldGroups from '../mock/formFieldGroups.json'
+import {AddAction, createNewField} from '../util/FieldAction'
+
 
 const FormFieldsPanel = () => {
 
     const onAddField = (item: any) => {
-        console.log(item);
+        console.log(item)
+        AddAction.notify({index: 0, data: createNewField(item)})
     }
 
     return <div className="form-fields-panel">
