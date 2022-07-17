@@ -1,14 +1,16 @@
-import {ArrayField, observer, useField} from '@formily/react'
-import {ArrayField as ArrayFieldType} from '@formily/core'
+import {ObjectField, observer, useField} from '@formily/react'
+import {ObjectField as ObjectFieldType} from '@formily/core'
 import {useEffect} from 'react'
 import {AddAction} from '../util/FieldAction'
 import TypeMap from './Fields/editorMap'
 
 const FormCanvasGroup = observer(() => {
-    const {value, insert} = useField<ArrayFieldType>()
+    const field = useField<ObjectFieldType>()
+
+    const [keys = [], values = []] = Object.entries(field.value)
 
     const addField = async ({index, data}: any) => {
-        await insert(index, data)
+
     }
 
     const removeField = () => {
@@ -22,19 +24,20 @@ const FormCanvasGroup = observer(() => {
         }
     }, [])
 
-    return <div>
+    console.log(values)
+
+    return <>
         {
-            value.map((item, index) => {
-                const FieldEditor = TypeMap[item.type]
-                return <div key={index}><FieldEditor fieldNamePath={`${index}`}/></div>
+            values.map((item: any) => {
+                return <div>123</div>
             })
         }
-    </div>
+    </>
 })
 
 const FormCanvasPanel = () => {
     return <div className="form-canvas-panel">
-        <ArrayField name="fields" component={[FormCanvasGroup]}/>
+        <ObjectField name="fields" component={[FormCanvasGroup]}/>
     </div>
 }
 

@@ -36,6 +36,7 @@
 .form-composite {
   display: flex;
   flex: 1;
+  overflow: hidden;
 }
 
 .form-fields-panel {
@@ -63,6 +64,17 @@
 .form-canvas-panel {
   flex: 1;
   background: var(--white-gray-lighter);
+  padding: 20px;
+  overflow: auto;
+}
+
+.field-canvas-item {
+  padding: 20px;
+  background: #fff;
+}
+
+.field-canvas-item + .field-canvas-item {
+  margin-top: 10px;
 }
 
 .form-setting-panel {

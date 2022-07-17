@@ -3,7 +3,10 @@ import {Input} from 'antd'
 
 const InlineEditor = ({fieldNamePath}: { fieldNamePath: string }) => {
     return <div>
-        <Field name={`${fieldNamePath}.label`} component={[Input]}/>
+        <div>
+            <div>{fieldNamePath}</div>
+            <Field name={`${fieldNamePath}.label`} component={[Input]}/>
+        </div>
         <div>
             <Input readOnly/>
         </div>

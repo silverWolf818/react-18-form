@@ -10,7 +10,8 @@ import './App.css'
 function App() {
     const form = createForm({
         initialValues: {
-            fields: []
+            dict: [],
+            fields: {}
         }
     })
 
