@@ -12,6 +12,6 @@ export const createNewField = (item: any) => {
     return {
         ...item,
         ...props,
-        apiCode: Math.random().toString(36).slice(-6)
+        __cid: Math.random().toString(36).slice(-6)
     }
 }
