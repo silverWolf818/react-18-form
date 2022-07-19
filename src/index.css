@@ -81,3 +81,22 @@
   width: 300px;
   border-left: 1px solid var(--white-gray-light);
 }
+
+.fields-editor-group {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.field-editor-container {
+  padding: 16px;
+  background: #fff;
+}
+
+.common-setting {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.common-setting .ant-btn + .ant-btn{
+  margin-left: 16px;
+}
