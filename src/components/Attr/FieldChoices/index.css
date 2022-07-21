@@ -1,0 +1,18 @@
+.choice-item {
+    display: flex;
+    align-items: center;
+}
+
+.choice-item + .choice-item {
+    margin-top: 10px;
+}
+
+.choice-item .choice-name {
+    display: block;
+    margin: 0 10px;
+}
+
+.choice-item .choice-drag,
+.choice-item .choice-delete {
+    cursor: pointer;
+}
