@@ -1,102 +1,112 @@
 @import '~antd/dist/antd.css';
 
 :root {
-  --brand-color: #1890ff;
-  --brand-hovering: #40a9ff;
-  --brand-dragging: rgba(24, 144, 255, 0.26);
-  --brand-dropping: rgba(24, 144, 255, 0.34);
-  --brand-moving: rgba(24, 144, 255, 0.5);
-  --white: #fff;
-  --white-gray: #d9d9d9;
-  --white-gray-light: #eee;
-  --white-gray-lighter: #f0f0f0;
-  --white-gray-dark: #aaa;
-  --gray: #333;
-  --gray-light: #444;
-  --gray-lighter: #666;
-  --gray-dark: #222;
-  --black: #1a1a1a;
+    --brand-color: #1890ff;
+    --brand-hovering: #40a9ff;
+    --brand-dragging: rgba(24, 144, 255, 0.26);
+    --brand-dropping: rgba(24, 144, 255, 0.34);
+    --brand-moving: rgba(24, 144, 255, 0.5);
+    --white: #fff;
+    --white-gray: #d9d9d9;
+    --white-gray-light: #eee;
+    --white-gray-lighter: #f0f0f0;
+    --white-gray-dark: #aaa;
+    --gray: #333;
+    --gray-light: #444;
+    --gray-lighter: #666;
+    --gray-dark: #222;
+    --black: #1a1a1a;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .form-header {
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--white-gray-light);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--white-gray-light);
 }
 
 .form-navigator {
-  text-align: right;
+    text-align: right;
 }
 
 .form-composite {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
+    display: flex;
+    flex: 1;
+    overflow: hidden;
 }
 
 .form-fields-panel {
-  padding: 10px;
-  width: 300px;
-  border-right: 1px solid var(--white-gray-light);
+    padding: 10px;
+    width: 300px;
+    border-right: 1px solid var(--white-gray-light);
 }
 
 .fields-group {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
 }
 
 .fields-panel-button {
-  color: var(--gray);
-  border: 1px solid var(--white-gray-light);
-  cursor: pointer;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 4px;
+    color: var(--gray);
+    border: 1px solid var(--white-gray-light);
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .form-canvas-panel {
-  flex: 1;
-  background: var(--white-gray-lighter);
-  padding: 20px;
-  overflow: auto;
+    flex: 1;
+    background: var(--white-gray-lighter);
+    padding: 20px;
+    overflow: auto;
 }
 
 .field-canvas-item {
-  padding: 20px;
-  background: #fff;
+    padding: 20px;
+    background: #fff;
 }
 
 .field-canvas-item + .field-canvas-item {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .form-setting-panel {
-  width: 300px;
-  border-left: 1px solid var(--white-gray-light);
+    width: 300px;
+    border-left: 1px solid var(--white-gray-light);
 }
 
 .fields-editor-group {
-  width: 60%;
-  margin: 0 auto;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .field-editor-container {
-  padding: 16px;
-  background: #fff;
+    padding: 16px 16px 16px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--white-gray);
 }
 
 .common-setting {
-  margin-top: 40px;
-  text-align: right;
+    margin-top: 40px;
+    text-align: right;
 }
 
-.common-setting .ant-btn + .ant-btn{
-  margin-left: 16px;
+.field-position {
+    position: absolute;
+    margin: 10px 0 0 20px;
+}
+
+.field-inline-editor .field-label {
+    margin: 0 0 16px 0;
+}
+
+.common-setting .ant-btn + .ant-btn {
+    margin-left: 16px;
 }

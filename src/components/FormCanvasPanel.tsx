@@ -33,7 +33,7 @@ const FormCanvasGroup = observer(() => {
                 fieldsInstance.current = field
                 return <div className="fields-editor-group">
                     {
-                        dictInstance.value?.map((item: any) => {
+                        dictInstance.value?.map((item: any, index) => {
                             const FieldEditor = TypeMap[item.type]
                             return <Fragment key={item.__cid}>
                                 <FieldEditor cid={item.__cid} fieldNamePath={`${item.__cid}`}/>

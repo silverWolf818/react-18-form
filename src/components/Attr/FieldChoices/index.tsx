@@ -1,34 +1,62 @@
-import {ArrayField, Field} from "@formily/react"
-import {Button, Input} from "antd"
+import {ArrayField, Field, observer, useField} from '@formily/react'
+import {ArrayField as ArrayFieldType} from '@formily/core'
+import {Button, Input} from 'antd'
+import {HolderOutlined, MinusCircleOutlined} from '@ant-design/icons'
+import './index.css'
+import {DndContext, useSensors, PointerSensor, KeyboardSensor, useSensor, closestCenter} from '@dnd-kit/core'
+import {SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy} from '@dnd-kit/sortable'
+import ChoiceItem from './ChoiceItem'
+import {DragEndEvent} from '@dnd-kit/core/dist/types'
 
-const FieldChoices = ({fieldNamePath}: { fieldNamePath: string }) => {
-    return <div className='field-choice'>
-        <ArrayField name={`${fieldNamePath}.choices`}>
-            {
-                (field) => {
-                    return <div>
-                        {
-                            field.value.map((item, index) => {
-                                return <div key={index}>
-                                    <Field name={`${index}.name`} component={[Input]}/>
-                                </div>
-                            })
-                        }
-                        <div style={{marginTop: '20px'}}>
-                            <Button onClick={async () => {
-                                await field.push({
-                                    name: '选项',
-                                    value: Math.random().toString(36).slice(-6),
-                                    selected: false,
-                                    hidden: false,
-                                })
-                            }} type='primary'>Add</Button>
-                        </div>
-                    </div>
+const FieldChoices = observer(({fieldNamePath}: { fieldNamePath: string }) => {
+    const field = useField<ArrayFieldType>()
+    const sensors = useSensors(
+        useSensor(PointerSensor),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    )
+
+    const onDragEnd = async (event: DragEndEvent) => {
+        const {active, over} = event
+        console.log(active)
+        console.log(over)
+        if (active.id !== over?.id) {
+            const oldIndex = active?.data?.current?.sortable.index
+            const newIndex = over?.data?.current?.sortable.index
+            console.log('oldIndex', oldIndex)
+            console.log('newIndex', newIndex)
+            await field.move(oldIndex, newIndex)
+        }
+    }
+
+    return <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+        <div className="field-choice">
+            <SortableContext items={JSON.parse(JSON.stringify(field.value))} strategy={verticalListSortingStrategy}>
+                {
+                    field.value?.map((item, index) => {
+                        console.log(item)
+                        return <ChoiceItem key={item.id} index={index} item={item} onRemove={field.remove}/>
+                    })
                 }
-            }
-        </ArrayField>
-    </div>
+            </SortableContext>
+            <div style={{marginTop: '20px'}}>
+                <Button onClick={async () => {
+                    await field.push({
+                        name: '选项',
+                        id: Math.random().toString(36).slice(-6),
+                        value: Math.random().toString(36).slice(-6),
+                        selected: false,
+                        hidden: false,
+                    })
+                }} type="primary">添加选项</Button>
+            </div>
+        </div>
+    </DndContext>
+})
+
+const FieldChoicesContainer = ({fieldNamePath}: { fieldNamePath: string }) => {
+    return <ArrayField name={`${fieldNamePath}.choices`} component={[FieldChoices, {fieldNamePath}]}/>
 }
 
-export default FieldChoices
+export default FieldChoicesContainer
