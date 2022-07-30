@@ -8,7 +8,7 @@ const createFieldEditor = ({renderer}: { renderer: ComponentType<any> }) => {
         return <Suspense fallback={<div>Loading...</div>}>
             <div className="field-editor-container">
                 <EditorComponent cid={cid} fieldNamePath={fieldNamePath}/>
-                <CommonSetting/>
+                <CommonSetting fieldNamePath={fieldNamePath}/>
             </div>
         </Suspense>
     }

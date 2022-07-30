@@ -19,13 +19,9 @@ const FieldChoices = observer(({fieldNamePath}: { fieldNamePath: string }) => {
 
     const onDragEnd = async (event: DragEndEvent) => {
         const {active, over} = event
-        console.log(active)
-        console.log(over)
         if (active.id !== over?.id) {
             const oldIndex = active?.data?.current?.sortable.index
             const newIndex = over?.data?.current?.sortable.index
-            console.log('oldIndex', oldIndex)
-            console.log('newIndex', newIndex)
             await field.move(oldIndex, newIndex)
         }
     }
@@ -35,7 +31,6 @@ const FieldChoices = observer(({fieldNamePath}: { fieldNamePath: string }) => {
             <SortableContext items={JSON.parse(JSON.stringify(field.value))} strategy={verticalListSortingStrategy}>
                 {
                     field.value?.map((item, index) => {
-                        console.log(item)
                         return <ChoiceItem key={item.id} index={index} item={item} onRemove={field.remove}/>
                     })
                 }

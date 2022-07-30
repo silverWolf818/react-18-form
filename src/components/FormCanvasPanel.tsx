@@ -1,7 +1,7 @@
 import {ArrayField, ObjectField, observer, useField} from '@formily/react'
 import {ObjectField as ObjectFieldType, ArrayField as ArrayFieldType} from '@formily/core'
 import {useEffect, useRef, Fragment} from 'react'
-import {AddAction} from '../util/FieldAction'
+import {AddAction, RemoveAction} from '../util/FieldAction'
 import TypeMap from './Fields/editorMap'
 
 const FormCanvasGroup = observer(() => {
@@ -16,14 +16,18 @@ const FormCanvasGroup = observer(() => {
         await fieldsInstance.current?.addProperty(data.__cid, data)
     }
 
-    const removeField = () => {
-
+    const removeField = async ({cid}: { cid: string }) => {
+        const index = dictInstance.value.findIndex(item => item.__cid === cid)
+        await dictInstance.remove(index)
+        await fieldsInstance.current?.removeProperty(cid)
     }
 
     useEffect(() => {
         AddAction.subscribe(addField)
+        RemoveAction.subscribe(removeField)
         return () => {
             AddAction.unsubscribe(addField)
+            RemoveAction.unsubscribe(removeField)
         }
     }, [])
 
