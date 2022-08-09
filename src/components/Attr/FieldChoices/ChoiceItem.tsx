@@ -3,14 +3,24 @@ import {useSortable} from '@dnd-kit/sortable'
 import {CSS} from '@dnd-kit/utilities'
 import {Field} from '@formily/react'
 import {Input} from 'antd'
+import {memo} from 'react'
+import ChoiceHidden from "./ChoiceHidden";
 
 interface ChoiceItemProps {
     index: number
-    item: any
+    item?: any
     onRemove: (index: number) => Promise<void>
 }
 
-const ChoiceItem = ({index, item, onRemove}: ChoiceItemProps) => {
+const ChoiceItem = memo(({index, onRemove}: ChoiceItemProps) => {
+    return <>
+        <Field name={`${index}.name`} component={[Input, {className: 'choice-name'}]}/>
+        <Field name={`${index}.hidden`} component={[ChoiceHidden]}/>
+        <div className="choice-delete"><MinusCircleOutlined onClick={() => onRemove(index)}/></div>
+    </>
+})
+
+const ChoiceItemContainer = ({index, item, onRemove}: ChoiceItemProps) => {
     const {
         attributes,
         listeners,
@@ -31,10 +41,8 @@ const ChoiceItem = ({index, item, onRemove}: ChoiceItemProps) => {
 
     return <div className="choice-item" ref={setNodeRef} style={style}>
         <div className="choice-drag" {...attributes} {...listeners}><HolderOutlined/></div>
-        <Field name={`${index}.name`} component={[Input, {className: 'choice-name'}]}/>
-        <div className="choice-delete"><MinusCircleOutlined onClick={() => onRemove(index)}/>
-        </div>
+        <ChoiceItem index={index} onRemove={onRemove}/>
     </div>
 }
 
-export default ChoiceItem
+export default ChoiceItemContainer

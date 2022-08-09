@@ -10,6 +10,7 @@
     "@dnd-kit/utilities": "^3.2.0",
     "@formily/core": "^2.1.12",
     "@formily/react": "^2.1.12",
+    "@formily/reactive": "^2.1.12",
     "@sentry/react": "^7.9.0",
     "@sentry/tracing": "^7.9.0",
     "@testing-library/jest-dom": "^5.16.5",

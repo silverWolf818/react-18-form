@@ -1,11 +1,12 @@
 import {onFieldInitialValueChange, onFieldReact, onFieldValueChange} from '@formily/core'
-import {observer, useFormEffects} from '@formily/react'
+import {useFormEffects} from '@formily/react'
+import { toJS } from '@formily/reactive'
 
-const FormSettingPanel = observer(() => {
+const FormSettingPanel = () => {
     useFormEffects(() => {
         onFieldReact('fields', (field) => {
             // @ts-ignore
-            console.log(JSON.stringify(field.value))
+            console.log(toJS(field.value))
         })
         // onFieldInitialValueChange('fields', (field) => {
         //     console.log(field.value)
@@ -15,6 +16,6 @@ const FormSettingPanel = observer(() => {
         // })
     })
     return <div className="form-setting-panel">1</div>
-})
+}
 
 export default FormSettingPanel

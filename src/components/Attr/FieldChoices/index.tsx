@@ -1,7 +1,7 @@
-import {ArrayField, Field, observer, useField} from '@formily/react'
+import {ArrayField, observer, useField} from '@formily/react'
 import {ArrayField as ArrayFieldType} from '@formily/core'
-import {Button, Input} from 'antd'
-import {HolderOutlined, MinusCircleOutlined} from '@ant-design/icons'
+import {toJS} from '@formily/reactive'
+import {Button} from 'antd'
 import './index.css'
 import {DndContext, useSensors, PointerSensor, KeyboardSensor, useSensor, closestCenter} from '@dnd-kit/core'
 import {SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy} from '@dnd-kit/sortable'
@@ -28,7 +28,7 @@ const FieldChoices = observer(({fieldNamePath}: { fieldNamePath: string }) => {
 
     return <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
         <div className="field-choice">
-            <SortableContext items={JSON.parse(JSON.stringify(field.value))} strategy={verticalListSortingStrategy}>
+            <SortableContext items={toJS(field.value)} strategy={verticalListSortingStrategy}>
                 {
                     field.value?.map((item, index) => {
                         return <ChoiceItem key={item.id} index={index} item={item} onRemove={field.remove}/>

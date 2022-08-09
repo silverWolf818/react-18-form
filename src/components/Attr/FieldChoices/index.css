@@ -16,3 +16,11 @@
 .choice-item .choice-delete {
     cursor: pointer;
 }
+
+.choice-item .choice-hidden {
+    cursor: pointer;
+}
+
+.choice-item .choice-hidden + .choice-delete {
+    margin-left: 10px;
+}
